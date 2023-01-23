@@ -3,8 +3,10 @@ package com.vipin.news
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import androidx.recyclerview.widget.RecyclerView.ViewHolder as ViewHolder1
 
 class NewsListAdapter( private val listener: NewsItemClick): RecyclerView.Adapter<ViewHolder>() {
@@ -27,6 +29,9 @@ class NewsListAdapter( private val listener: NewsItemClick): RecyclerView.Adapte
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = items[position]
         holder.title.text = currentItem.title
+        holder.author.text = currentItem.author
+        Glide.with(holder.itemView.context).load(currentItem.imageUrl).into(holder.image)
+
     }
     fun updateNews (updatedNews:ArrayList<NewsModel>) {
         items.clear()
@@ -44,4 +49,6 @@ interface NewsItemClick {
 
 class ViewHolder(item:View): ViewHolder1(item) {
     val title : TextView = itemView.findViewById(R.id.title)
+    val image : ImageView = item.findViewById(R.id.image)
+    val author :TextView = item.findViewById(R.id.author)
 }

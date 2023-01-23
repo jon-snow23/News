@@ -2,21 +2,58 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
 
-
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/title"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        app:cardElevation="@dimen/space"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_margin="@dimen/space"
+        app:cardCornerRadius="@dimen/space"
+        android:layout_marginTop="@dimen/space"
+        app:cardBackgroundColor="#E5E4E2"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="18sp"
-        android:textColor="#212121"
+/>
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="@id/card"
+        app:layout_constraintRight_toRightOf="@id/card"
+        app:layout_constraintTop_toTopOf="@id/card"
         />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintLeft_toLeftOf="@id/card"
+        app:layout_constraintRight_toRightOf="@id/card"
+        app:layout_constraintBottom_toTopOf="@id/author"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:elevation="@dimen/space"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        />
+    <TextView
+        android:id="@+id/author"
+        android:elevation="@dimen/space"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintLeft_toLeftOf="@id/card"
+        app:layout_constraintRight_toRightOf="@id/card"
+        android:layout_marginTop="8dp"
+        />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
